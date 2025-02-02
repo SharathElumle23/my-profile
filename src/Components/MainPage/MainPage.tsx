@@ -19,6 +19,7 @@ const MainPage: React.FC = () => {
           <h1 style={{ fontWeight: "bold" }}>Hi, I am Sharath Kumar Elumle</h1>
           <h3>Full Stack Web Developer</h3>
           <h6>{profileSummary}</h6>
+          <Button onClick={() => alert("Learn More!")}>Resume Download</Button>
         </div>
         <div>
           <div className="navbar-brand">
@@ -26,7 +27,6 @@ const MainPage: React.FC = () => {
           </div>
         </div>
       </HeroSection>
-      <Button onClick={() => alert("Learn More!")}>Resume Download</Button>
     </div>
   );
 };

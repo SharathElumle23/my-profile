@@ -1,10 +1,10 @@
 import React from "react";
 import "./App.css";
-import MainPage from "./assets/Components/MainPage/MainPage";
+import MainPage from "./Components/MainPage/MainPage";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import AboutPage from "./assets/Components/AboutPage/AboutPage";
+import AboutPage from "./Components/AboutPage/AboutPage";
 import GlobalStyles from "./GlobalStyles";
-import Navbar from "./assets/Components/Navbar/Navbar";
+import Navbar from "./Components/Navbar/Navbar";
 const App: React.FC = () => {
   return (
     <>
