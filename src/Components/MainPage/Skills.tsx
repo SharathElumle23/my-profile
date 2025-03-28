@@ -14,7 +14,7 @@ import {
 } from "react-icons/si";
 import { FaDatabase } from "react-icons/fa";
 import "animate.css";
-const Skills = () => {
+const Skills: React.FC = () => {
   const skills = [
     { name: "HTML", icon: <SiHtml5 />, color: "#E34F26" },
     { name: "CSS", icon: <SiCss3 />, color: "#1572B6" },

@@ -22,3 +22,17 @@
     background-color: #004080; /* Even darker blue on click */
     transform: translateY(0); /* Reset lift effect */
   }
+  .point-with-dot {
+    position: relative;
+    padding-left: 20px; /* Adjust the padding as needed */
+  }
+  
+  .point-with-dot::before {
+    content: '•'; /* Adds the dot before the text */
+    position: absolute;
+    left: 0;
+    top: 0;
+    color: #fff; /* Set the color of the dot (you can change it) */
+    font-size: 20px; /* Size of the dot */
+  }
+  

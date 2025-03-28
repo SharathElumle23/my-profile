@@ -3,6 +3,8 @@ import styled from "styled-components";
 import { profileSummary } from "../MockData";
 import Skills from "./Skills";
 import "./Common.css";
+import Experience from "./Experience";
+import Contact from "../ContactCard";
 
 const MainPage: React.FC = () => {
   const HeroSection = styled.section`
@@ -79,6 +81,8 @@ const MainPage: React.FC = () => {
         </div>
       </HeroSection>
       <Skills />
+      <Experience />
+      <Contact />
     </div>
   );
 };
