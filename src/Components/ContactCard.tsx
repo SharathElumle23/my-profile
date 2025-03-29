@@ -75,74 +75,94 @@ const Contact: React.FC = () => {
   };
 
   return (
-    <div className="container mt-5">
-      <div className="row g-4">
-        {/* Form Section */}
-        <motion.div
-          variants={slideIn("left", "tween", 0.2, 1)}
-          className="col-md-6 bg-white text-black p-4 rounded"
-        >
-          <h3 className="mb-3">Contact</h3>
+    <section
+      id="Experience"
+      className="py-5 text-black animate__animated animate__fadeIn"
+      style={{
+        background: "linear-gradient(135deg,#f4f4f4,#f4f4f4)",
+        fontFamily: "'Poppins', sans-serif",
+      }}
+    >
+      <div className="container mt-5">
+        <div className="row g-4">
+          {/* Form Section */}
+          <motion.div
+            variants={slideIn("left", "tween", 0.2, 1)}
+            className="col-md-6 bg-light text-dark p-5 rounded shadow-lg"
+          >
+            <h3 className="mb-4 text-center">Contact Us</h3>
 
-          <form ref={formRef} onSubmit={handleSubmit}>
-            {/* Name Input */}
-            <div className="mb-3">
-              <label className="form-label">Your Name</label>
-              <input
-                type="text"
-                name="name"
-                value={form.name}
-                onChange={handleChange}
-                className="form-control"
-                placeholder="What's your good name?"
-                required
-              />
-            </div>
+            <form ref={formRef} onSubmit={handleSubmit}>
+              {/* Name Input */}
+              <div className="mb-4">
+                <label className="form-label" htmlFor="name">
+                  Your Name
+                </label>
+                <input
+                  type="text"
+                  id="name"
+                  name="name"
+                  value={form.name}
+                  onChange={handleChange}
+                  className="form-control"
+                  placeholder="What's your good name?"
+                  required
+                />
+              </div>
 
-            {/* Email Input */}
-            <div className="mb-3">
-              <label className="form-label">Your Email</label>
-              <input
-                type="email"
-                name="email"
-                value={form.email}
-                onChange={handleChange}
-                className="form-control"
-                placeholder="What's your email address?"
-                required
-              />
-            </div>
+              {/* Email Input */}
+              <div className="mb-4">
+                <label className="form-label" htmlFor="email">
+                  Your Email
+                </label>
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  value={form.email}
+                  onChange={handleChange}
+                  className="form-control"
+                  placeholder="What's your email address?"
+                  required
+                />
+              </div>
 
-            {/* Message Input */}
-            <div className="mb-3">
-              <label className="form-label">Your Message</label>
-              <textarea
-                name="message"
-                value={form.message}
-                onChange={handleChange}
-                className="form-control"
-                rows={5}
-                placeholder="What do you want to say?"
-                required
-              />
-            </div>
+              {/* Message Input */}
+              <div className="mb-4">
+                <label className="form-label" htmlFor="message">
+                  Your Message
+                </label>
+                <textarea
+                  name="message"
+                  id="message"
+                  value={form.message}
+                  onChange={handleChange}
+                  className="form-control"
+                  rows={5}
+                  placeholder="What do you want to say?"
+                  required
+                />
+              </div>
 
-            {/* Submit Button */}
-            <button type="submit" className="btn btn-primary">
-              {loading ? "Sending..." : "Send"}
-            </button>
-          </form>
-        </motion.div>
+              {/* Submit Button */}
+              <div className="text-center">
+                <button type="submit" className="btn btn-primary px-4 py-2">
+                  {loading ? "Sending..." : "Send"}
+                </button>
+              </div>
+            </form>
+          </motion.div>
 
-        {/* Earth Animation */}
-        <motion.div
-          variants={slideIn("right", "tween", 0.2, 1)}
-          className="col-md-6 d-flex justify-content-center align-items-center"
-        >
-          <EarthCanvas />
-        </motion.div>
+          {/* Earth Animation */}
+          <motion.div
+            variants={slideIn("right", "tween", 0.2, 1)}
+            className="col-md-6 d-flex justify-content-center align-items-center"
+          >
+            <EarthCanvas />
+          </motion.div>
+        </div>
       </div>
-    </div>
+    </section>
   );
 };
 

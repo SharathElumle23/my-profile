@@ -16,18 +16,15 @@ const experiences = [
     iconBg: "#FFF",
     points: [
       "Developing and maintaining web applications using React.js and other modern frontend technologies.",
-
       "Collaborating with cross-functional teams including designers, product managers, and other developers to deliver high-quality, user-centric products.",
-
       "Implementing responsive web designs, ensuring cross-browser compatibility, and optimizing user interfaces for both desktop and mobile devices.",
-
       "Writing clean, efficient, and reusable code while adhering to best practices in version control using Git.",
-
       "Participating in Agile development processes, attending sprint meetings, and delivering features within project timelines.",
     ],
   },
   // Add other experiences as needed
 ];
+
 // Define the type for the `experience` prop
 interface Experience {
   title: string;
@@ -37,6 +34,7 @@ interface Experience {
   iconBg: string;
   points: string[];
 }
+
 const textVariant = (delay?: undefined) => {
   return {
     hidden: {
@@ -59,31 +57,39 @@ const ExperienceCard = ({ experience }: { experience: Experience }) => {
   return (
     <VerticalTimelineElement
       contentStyle={{
-        background: "#1d1836",
+        background: "#ffffff", // white background for the card look
+        color: "#333333", // dark text color for better readability
+        borderRadius: "10px", // rounded corners
+        boxShadow: "0 4px 6px rgba(0, 0, 0, 0.1)", // soft shadow for depth
+        border: "2px solid #000", // black border for the card
       }}
+      contentArrowStyle={{ borderRight: "20px solid  #000" }} // arrow color matching the background
       date={experience.date}
-      contentArrowStyle={{ borderRight: "7px solid  #232631" }}
-      iconStyle={{ background: experience.iconBg }}
+      iconStyle={{
+        background: experience.iconBg,
+        borderRadius: "10%",
+        boxShadow: "0 0 10px rgba(0, 0, 0, 0.1)", // adding shadow to the icon
+      }}
       icon={
         <div className="d-flex justify-content-center align-items-center w-100 h-100">
           <img
             src={experience.icon}
             alt={experience.company_name}
-            className="w-75 h-75 object-contain"
+            className="w-100 h-100 object-contain"
           />
         </div>
       }
     >
       <div>
-        <h3 className="text-white h5 font-weight-bold">{experience.title}</h3>
-        <p className="text-secondary">{experience.company_name}</p>
+        <h3 className="text-dark h5 font-weight-bold">{experience.title}</h3>
+        <p className="text-muted">{experience.company_name}</p>
       </div>
 
-      <ul className="mt-3 list-unstyled" style={{ color: "#FFF" }}>
+      <ul className="mt-3 list-unstyled" style={{ color: "#333" }}>
         {experience.points.map((point, index) => (
           <li
             key={`experience-point-${index}`}
-            className="point-with-dot text-white-100 text-sm"
+            className="point-with-dot text-dark"
           >
             {point}
           </li>
@@ -97,6 +103,7 @@ const Experience = () => {
   const [text, setText] = useState("");
   const fullText = "💼 Work Experience";
   const typingSpeed = 500;
+
   useEffect(() => {
     let index = 0;
     const interval = setInterval(() => {
@@ -106,8 +113,16 @@ const Experience = () => {
     }, typingSpeed);
     return () => clearInterval(interval);
   }, []);
+
   return (
-    <div className="container mt-2 ">
+    <section
+      id="Experience"
+      className="py-5 text-black text-center animate__animated animate__fadeIn"
+      style={{
+        background: "linear-gradient(135deg,#f4f4f4,#f4f4f4)",
+        fontFamily: "'Poppins', sans-serif",
+      }}
+    >
       <motion.div variants={textVariant()}>
         <h2 className="text-center text-uppercase fw-bold position-relative animate__animated animate__fadeInDown">
           {text}
@@ -124,7 +139,7 @@ const Experience = () => {
           ))}
         </VerticalTimeline>
       </div>
-    </div>
+    </section>
   );
 };
 
