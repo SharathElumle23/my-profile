@@ -9,7 +9,7 @@ import {
 } from "@react-three/drei";
 
 // CanvasLoader component for showing the loading state
-const CanvasLoader = () => {
+const CanvasLoader: React.FC = () => {
   const { progress } = useProgress();
   return (
     <Html

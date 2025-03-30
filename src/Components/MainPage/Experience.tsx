@@ -34,6 +34,9 @@ interface Experience {
   iconBg: string;
   points: string[];
 }
+interface ExperienceCardProps {
+  experience: Experience;
+}
 
 const textVariant = (delay?: undefined) => {
   return {
@@ -53,7 +56,7 @@ const textVariant = (delay?: undefined) => {
   };
 };
 
-const ExperienceCard = ({ experience }: { experience: Experience }) => {
+const ExperienceCard: React.FC<ExperienceCardProps> = ({ experience }) => {
   return (
     <VerticalTimelineElement
       contentStyle={{
