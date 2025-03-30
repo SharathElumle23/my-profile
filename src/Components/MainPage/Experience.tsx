@@ -56,6 +56,10 @@ const textVariant = (delay?: undefined) => {
 const ExperienceCard: React.FC<{ experience?: Experience }> = ({
   experience,
 }) => {
+  if (!experience) {
+    console.error("Experience is undefined"); // Debugging output
+    return null; // Prevent crashing
+  }
   return (
     <VerticalTimelineElement
       contentStyle={{
