@@ -1,7 +1,7 @@
 import React from "react";
 import "./App.css";
 import MainPage from "./Components/MainPage/MainPage";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { HashRouter, Route, Routes } from "react-router-dom";
 import AboutPage from "./Components/AboutPage/AboutPage";
 import GlobalStyles from "./GlobalStyles";
 import Navbar from "./Components/Navbar/Navbar";
@@ -10,7 +10,7 @@ import Contact from "./Components/ContactCard";
 const App: React.FC = () => {
   return (
     <>
-      <BrowserRouter>
+      <HashRouter>
         <GlobalStyles />
         <Navbar />
         <Routes>
@@ -20,7 +20,7 @@ const App: React.FC = () => {
           <Route path="/projects" element={<Experience />} />
           <Route path="/contact" element={<Contact />} />
         </Routes>
-      </BrowserRouter>
+      </HashRouter>
     </>
   );
 };
