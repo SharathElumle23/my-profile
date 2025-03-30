@@ -34,9 +34,6 @@ interface Experience {
   iconBg: string;
   points: string[];
 }
-interface ExperienceCardProps {
-  experience: Experience;
-}
 
 const textVariant = (delay?: undefined) => {
   return {
@@ -56,7 +53,7 @@ const textVariant = (delay?: undefined) => {
   };
 };
 
-const ExperienceCard: React.FC<ExperienceCardProps> = ({ experience }) => {
+const ExperienceCard = ({ experience }: { experience: Experience }) => {
   return (
     <VerticalTimelineElement
       contentStyle={{
@@ -102,7 +99,7 @@ const ExperienceCard: React.FC<ExperienceCardProps> = ({ experience }) => {
   );
 };
 
-const Experience = () => {
+const Experience: React.FC = () => {
   const [text, setText] = useState("");
   const fullText = "💼 Work Experience";
   const typingSpeed = 500;
