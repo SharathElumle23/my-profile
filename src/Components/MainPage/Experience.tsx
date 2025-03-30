@@ -53,7 +53,9 @@ const textVariant = (delay?: undefined) => {
   };
 };
 
-const ExperienceCard = ({ experience }: { experience: Experience }) => {
+const ExperienceCard: React.FC<{ experience?: Experience }> = ({
+  experience,
+}) => {
   return (
     <VerticalTimelineElement
       contentStyle={{
@@ -64,29 +66,29 @@ const ExperienceCard = ({ experience }: { experience: Experience }) => {
         border: "2px solid #000", // black border for the card
       }}
       contentArrowStyle={{ borderRight: "20px solid  #000" }} // arrow color matching the background
-      date={experience.date}
+      date={experience?.date}
       iconStyle={{
-        background: experience.iconBg,
+        background: experience?.iconBg,
         borderRadius: "10%",
         boxShadow: "0 0 10px rgba(0, 0, 0, 0.1)", // adding shadow to the icon
       }}
       icon={
         <div className="d-flex justify-content-center align-items-center w-100 h-100">
           <img
-            src={experience.icon}
-            alt={experience.company_name}
+            src={experience?.icon}
+            alt={experience?.company_name}
             className="w-100 h-100 object-contain"
           />
         </div>
       }
     >
       <div>
-        <h3 className="text-dark h5 font-weight-bold">{experience.title}</h3>
-        <p className="text-muted">{experience.company_name}</p>
+        <h3 className="text-dark h5 font-weight-bold">{experience?.title}</h3>
+        <p className="text-muted">{experience?.company_name}</p>
       </div>
 
       <ul className="mt-3 list-unstyled" style={{ color: "#333" }}>
-        {experience.points.map((point, index) => (
+        {experience?.points.map((point, index) => (
           <li
             key={`experience-point-${index}`}
             className="point-with-dot text-dark"
