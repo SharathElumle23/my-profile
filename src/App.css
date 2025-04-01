@@ -22,6 +22,9 @@
     background-color: #004080; /* Even darker blue on click */
     transform: translateY(0); /* Reset lift effect */
   }
-
+  .service-card:hover {
+    transform: scale(1.05);
+  }
+  
 
   

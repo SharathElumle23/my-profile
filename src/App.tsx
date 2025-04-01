@@ -14,9 +14,8 @@ const App: React.FC = () => {
         <GlobalStyles />
         <Navbar />
         <Routes>
-          <Route path="/" element={<MainPage />} />
-          <Route path="/about" element={<AboutPage />} />
           <Route path="*" element={<MainPage />} />
+          <Route path="/about" element={<AboutPage show={true} />} />
           <Route path="/projects" element={<Experience />} />
           <Route path="/contact" element={<Contact />} />
         </Routes>
