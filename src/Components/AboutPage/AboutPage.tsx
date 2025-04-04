@@ -1,5 +1,5 @@
 import React from "react";
-import { profileSummary } from "../MockData";
+import { profileSummary, profileSummaryAbout } from "../MockData";
 
 // Example icons for services, replace these with actual icon components or images
 import { FaLaptopCode, FaServer, FaDatabase } from "react-icons/fa";
@@ -86,9 +86,15 @@ const About: React.FC<aboutInt> = ({ show }) => {
         <div>
           <h1 className="fw-bold">Hi, I'm Sharath Kumar Elumle</h1>
           <h3 className="text-primary">Full Stack Web Developer</h3>
-          <p className="text-black">{profileSummary}</p>
+          {show
+            ? profileSummaryAbout.map((profile: string) => (
+                <p className="text-black">{profile}</p>
+              ))
+            : profileSummary.map((profile: string) => (
+                <p className="text-black">{profile}</p>
+              ))}
           <DownloadButton
-            href="src/assets/SharathKumarElumle.pdf"
+            href="/SharathElmle.pdf"
             download="SharathKumarElumle.pdf"
           >
             <i className="fas fa-download"></i> Download Resume
