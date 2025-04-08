@@ -19,13 +19,13 @@ interface ProjectItem {
 
 const projectList: ProjectItem[] = [
   {
-    title: "AI Chatbot (Gemini API)",
+    title: "Sharath AI ChatBot",
     description: [
-      "A human-like chatbot interface powered by Gemini APIs with animated UI effects and clean React structure.",
+      "Powered by Artificial Intelligence.A human-like chatbot interface powered by Gemini APIs with animated UI effects and clean React structure.",
     ],
     tech: ["React", "TypeScript", "TailwindCSS", "Vite", "Gemini API"],
     github: "https://github.com/SharathElumle23/chatbotAI",
-    //live: "https://your-chatbot.netlify.app",
+    live: "https://sharathai.netlify.app/",
   },
   // {
   //   title: "Task Manager App",
