@@ -1,6 +1,6 @@
 import { Variants } from "framer-motion";
 
-export const textVariant = (delay: number): Variants => {
+export const textVariant = (delay?: number): Variants => {
   return {
     hidden: {
       y: -50,

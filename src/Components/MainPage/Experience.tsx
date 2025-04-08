@@ -5,6 +5,7 @@ import {
 } from "react-vertical-timeline-component";
 import { motion } from "framer-motion";
 import "react-vertical-timeline-component/style.min.css";
+import { textVariant } from "../../Utils/animation";
 
 // Assuming your experience data will be provided as an array
 const experiences = [
@@ -34,24 +35,6 @@ interface Experience {
   iconBg: string;
   points: string[];
 }
-
-const textVariant = (delay?: undefined) => {
-  return {
-    hidden: {
-      y: -50,
-      opacity: 0,
-    },
-    show: {
-      y: 0,
-      opacity: 1,
-      transition: {
-        type: "spring",
-        duration: 1.25,
-        delay: delay,
-      },
-    },
-  };
-};
 
 const ExperienceCard: React.FC<{ experience?: Experience }> = ({
   experience,
