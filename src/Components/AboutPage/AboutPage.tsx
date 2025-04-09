@@ -11,22 +11,14 @@ interface aboutInt {
 }
 
 const HeroSection = styled.section`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 4rem 2rem;
-  background: linear-gradient(to right, #f4f4f4, #f4f4f4);
+  padding: 3rem 1rem;
+  border-radius: 1rem;
+  margin-bottom: 0rem;
+  background: linear-gradient(135deg, #f4f4f4, #f4f4f4); /* subtle gradient */
+  font-family: "Poppins", sans-serif;
   color: black;
-  text-align: center;
-  border-radius: 10px;
-
-  @media (min-width: 768px) {
-    flex-direction: row;
-    justify-content: space-between;
-    text-align: left;
-    padding: 4rem 6rem;
-  }
 `;
+
 const DownloadButton = styled.a`
   display: inline-block;
   padding: 12px 24px;
@@ -54,16 +46,87 @@ const DownloadButton = styled.a`
     margin-right: 10px;
   }
 `;
-const Logo = styled.img`
-  width: 120px; /* Adjust logo size */
-  height: auto;
+
+const LogoWrapper = styled.div`
+  position: relative;
+  width: 340px;
+  height: 340px;
+  margin: auto;
   border-radius: 50%;
-  box-shadow: 0 4px 10px rgba(255, 255, 255, 0.2);
+  overflow: hidden;
+  animation: pulseGlow 6s ease-in-out infinite;
 
   @media (min-width: 768px) {
-    width: 180px; /* Larger logo on larger screens */
+    width: 420px;
+    height: 420px;
+  }
+
+  &::before {
+    content: "";
+    position: absolute;
+    inset: -10px;
+    border-radius: 50%;
+    background: conic-gradient(from 0deg, #0d6efd, #6610f2, #6f42c1, #0d6efd);
+    animation: rotateGradient 8s linear infinite;
+    z-index: 1;
+    filter: blur(12px);
+    opacity: 0.8;
+  }
+
+  img {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    width: calc(100% - 40px);
+    height: calc(100% - 40px);
+    object-fit: cover;
+    border-radius: 50%;
+    z-index: 2;
+    border: 6px solid white;
+    animation: floatUpDown 5s ease-in-out infinite,
+      fadeIn 1.5s ease-out forwards;
+  }
+
+  @keyframes rotateGradient {
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
+  @keyframes floatUpDown {
+    0%,
+    100% {
+      transform: translateY(0px);
+    }
+    50% {
+      transform: translateY(-12px);
+    }
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: scale(0.9);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+  @keyframes pulseGlow {
+    0%,
+    100% {
+      box-shadow: 0 0 25px rgba(13, 110, 253, 0.6),
+        0 0 50px rgba(102, 16, 242, 0.4);
+    }
+    50% {
+      box-shadow: 0 0 50px rgba(13, 110, 253, 0.8),
+        0 0 80px rgba(102, 16, 242, 0.6);
+    }
   }
 `;
+
 const About: React.FC<aboutInt> = ({ show }) => {
   const services = [
     {
@@ -83,28 +146,40 @@ const About: React.FC<aboutInt> = ({ show }) => {
   return (
     <>
       <HeroSection>
-        <div>
-          <h1 className="fw-bold">Hi, I'm Sharath Kumar Elumle</h1>
-          <h3 className="text-primary">Full Stack Web Developer</h3>
-          {show
-            ? profileSummaryAbout.map((profile: string) => (
-                <p className="text-black">{profile}</p>
-              ))
-            : profileSummary.map((profile: string) => (
-                <p className="text-black">{profile}</p>
-              ))}
-          <DownloadButton
-            href="/SharathElmle.pdf"
-            download="SharathKumarElumle.pdf"
-          >
-            <i className="fas fa-download"></i> Download Resume
-          </DownloadButton>
-        </div>
+        <div className="row align-items-center w-100">
+          {/* Text Section - on the left */}
+          <div className="col-md-7 order-2 order-md-1">
+            <h1 className="fw-bold">Hi, I'm Sharath Kumar Elumle</h1>
+            <h3 className="text-primary">Full Stack Web Developer</h3>
+            {show
+              ? profileSummaryAbout.map((profile: string, index: number) => (
+                  <p key={index} className="text-secondary">
+                    {profile}
+                  </p>
+                ))
+              : profileSummary.map((profile: string, index: number) => (
+                  <p key={index} className="text-secondary">
+                    {profile}
+                  </p>
+                ))}
+            <DownloadButton
+              href="/SharathElmle.pdf"
+              download="SharathKumarElumle.pdf"
+              className="mt-3"
+            >
+              <i className="fas fa-download"></i> Download Resume
+            </DownloadButton>
+          </div>
 
-        <div>
-          <Logo src="SE.png" alt="Sharath ELumle Logo" />
+          {/* Image Section - on the right */}
+          <div className="col-md-5 text-center order-1 order-md-2 mb-4 mb-md-0">
+            <LogoWrapper>
+              <img src="sharathprofile.png" alt="Sharath Elumle" />
+            </LogoWrapper>
+          </div>
         </div>
       </HeroSection>
+
       {show && (
         <div
           style={{
@@ -114,7 +189,7 @@ const About: React.FC<aboutInt> = ({ show }) => {
           <div className="container py-6">
             <div className="row text-center">
               {services.map((service, index) => (
-                <div key={index} className="col-12 col-sm-6 col-md-3 mb-4">
+                <div key={index} className="col-12 col-sm-6 col-md-4 mb-4">
                   <div
                     className="service-card p-4 shadow rounded border"
                     style={{
