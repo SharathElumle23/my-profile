@@ -1,9 +1,9 @@
 import React from "react";
 import Skills from "./Skills";
-import "./Common.css";
+import "../Common.css";
 import Experience from "./Experience";
 import Contact from "../ContactCard";
-import About from "../AboutPage/AboutPage";
+import About from "./AboutPage";
 
 const MainPage: React.FC = () => {
   return (
