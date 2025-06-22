@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import Experience from "./Experience";
 import { motion } from "framer-motion";
 import { textVariant } from "../../Utils/animation";
+import ConnectMe from "./ConnectMe";
 
 interface ProjectInt {
   route: boolean;
@@ -19,7 +20,7 @@ interface ProjectItem {
 
 const projectList: ProjectItem[] = [
   {
-    title: "Sharath AI ChatBot",
+    title: "AI ChatBot",
     description: [
       "Powered by Artificial Intelligence.A human-like chatbot interface powered by Gemini APIs with animated UI effects and clean React structure.",
     ],
@@ -27,13 +28,18 @@ const projectList: ProjectItem[] = [
     github: "https://github.com/SharathElumle23/chatbotAI",
     live: "https://sharathai.netlify.app/",
   },
-  // {
-  //   title: "Task Manager App",
-  //   description:
-  //     "A full-stack productivity tool to manage your daily tasks with a smooth drag-and-drop interface.",
-  //   tech: ["React", "Node.js", "MongoDB", "Express"],
-  //   github: "https://github.com/your-username/task-manager",
-  // },
+{
+    title: "ECOM ",
+    description: [
+      "An eCommerce web application built with modern web technologies to provide a seamless shopping experience.",
+    "Features include user authentication, product listing, cart management, and a smooth checkout process.",
+    "Responsive design optimized for both mobile and desktop views.",
+    ],
+    tech: ["React", "JavaScript", "MaterialUI", "Vite", "Redux",],
+    github: "https://github.com/SharathElumle23/ECOM",
+    live: "https://elumlecart.netlify.app/",
+  },
+  
   {
     title: "Portfolio Website",
     description: [
@@ -153,6 +159,8 @@ const Project: React.FC<ProjectInt> = ({ route }) => {
           </div>
         </div>
       </section>
+           <ConnectMe />
+
     </>
   );
 };

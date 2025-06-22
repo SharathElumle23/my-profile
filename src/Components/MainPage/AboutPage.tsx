@@ -4,7 +4,7 @@ import { profileSummary, profileSummaryAbout } from "../MockData";
 // Example icons for services, replace these with actual icon components or images
 import { FaLaptopCode, FaServer, FaDatabase } from "react-icons/fa";
 import styled from "styled-components";
-import { Link } from "react-router-dom";
+import ConnectMe from "./ConnectMe";
 
 interface aboutInt {
   show: boolean;
@@ -142,7 +142,26 @@ const About: React.FC<aboutInt> = ({ show }) => {
       icon: <FaDatabase />,
     },
   ];
+function calculateDuration(startDate:Date) {
+    const currentDate = new Date();
+    let years = currentDate.getFullYear() - startDate.getFullYear();
+    let months = currentDate.getMonth() - startDate.getMonth();
+    let days = currentDate.getDate() - startDate.getDate();
 
+    // Adjust for negative months/days
+    if (days < 0) {
+        months--;
+        days += new Date(currentDate.getFullYear(), currentDate.getMonth(), 0).getDate(); // Days in previous month
+    }
+    if (months < 0) {
+        years--;
+        months += 12;
+    }
+
+    return `${years}y, ${months}mnts, and ${days}days`;
+}
+
+const startDate = new Date('2022-02-01');
   return (
     <>
       <HeroSection>
@@ -150,7 +169,7 @@ const About: React.FC<aboutInt> = ({ show }) => {
           {/* Text Section - on the left */}
           <div className="col-md-7 order-2 order-md-1">
             <h1 className="fw-bold">Hi, I'm Sharath Kumar Elumle</h1>
-            <h3 className="text-primary">Full Stack Web Developer</h3>
+            <h3 className="text-primary">{`Full Stack Web Developer | ${calculateDuration(startDate)}`}</h3>
             {show
               ? profileSummaryAbout.map((profile: string, index: number) => (
                   <p key={index} className="text-secondary">
@@ -208,51 +227,8 @@ const About: React.FC<aboutInt> = ({ show }) => {
                 </div>
               ))}
             </div>
-            <div className="mt-5">
-              <h2 className="fw-bold">Connect With Me</h2>
-              <p className="text-muted">
-                Feel free to reach out via social media or email!
-              </p>
+                <ConnectMe />
 
-              {/* Social Media Links */}
-              <div className="d-flex justify-content gap-4 mt-3">
-                <a
-                  href="https://www.linkedin.com/in/sharath-elumle-b60272129/"
-                  className="text-primary fs-3"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <i className="fab fa-linkedin"></i>
-                </a>
-                <a
-                  href="https://github.com/SharathElumle23/SharathElumle23"
-                  className="text-dark fs-3"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <i className="fab fa-github"></i>
-                </a>
-                <a
-                  href="mailto:sharathelumle23@gmail.com?subject=Hello%20Sharath&body=Hi%2C%20I%20would%20like%20to%20connect%20with%20you."
-                  className="text-danger fs-3"
-                >
-                  <i className="fas fa-envelope"></i>
-                </a>
-                <a
-                  href="https://x.com/sharath_elumle"
-                  className="text-info fs-3"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <i className="fab fa-twitter"></i>
-                </a>
-              </div>
-
-              {/* Contact Button */}
-              <Link to="/contact" className="btn btn-primary mt-4">
-                <i className="fas fa-paper-plane"></i> Contact Me
-              </Link>
-            </div>
           </div>
         </div>
       )}

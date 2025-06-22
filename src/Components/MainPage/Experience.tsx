@@ -8,9 +8,11 @@ import "react-vertical-timeline-component/style.min.css";
 import { textVariant } from "../../Utils/animation";
 
 // Assuming your experience data will be provided as an array
+
+
 const experiences = [
   {
-    title: "Full Stack Developer",
+    title: `Full Stack Developer`,
     company_name: "Infosys Ltd",
     date: "2022 Feb - Present",
     icon: "/infosysLogo.webp",
@@ -104,6 +106,7 @@ const Experience: React.FC = () => {
   }, []);
 
   return (
+  <>
     <section
       id="Experience"
       className="py-5 text-black text-center animate__animated animate__fadeIn"
@@ -128,7 +131,9 @@ const Experience: React.FC = () => {
           ))}
         </VerticalTimeline>
       </div>
-    </section>
+      
+    </section>             
+              </>
   );
 };
 

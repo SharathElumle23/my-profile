@@ -2,6 +2,7 @@ import React, { useRef, useState, ChangeEvent, FormEvent } from "react";
 import { motion } from "framer-motion";
 import emailjs from "@emailjs/browser";
 import { EarthCanvas } from "./canvas/Earth";
+import ConnectMe from "./MainPage/ConnectMe";
 
 // Animation function with proper types
 const slideIn = (
@@ -75,6 +76,7 @@ const Contact: React.FC = () => {
   };
 
   return (
+    <>
     <section
       id="Experience"
       className="py-5 text-black animate__animated animate__fadeIn"
@@ -163,6 +165,8 @@ const Contact: React.FC = () => {
         </div>
       </div>
     </section>
+         <ConnectMe />
+</>
   );
 };
 
