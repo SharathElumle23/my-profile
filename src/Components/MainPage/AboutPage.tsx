@@ -14,9 +14,10 @@ const HeroSection = styled.section`
   padding: 3rem 1rem;
   border-radius: 1rem;
   margin-bottom: 0rem;
-  background: linear-gradient(135deg, #f4f4f4, #f4f4f4); /* subtle gradient */
+  background: var(--bg-skill); /* subtle gradient */
   font-family: "Poppins", sans-serif;
-  color: black;
+  color: var(--text-primary);
+  transition: background 0.3s ease, color 0.3s ease;
 `;
 
 const DownloadButton = styled.a`
@@ -24,21 +25,21 @@ const DownloadButton = styled.a`
   padding: 12px 24px;
   font-size: 18px;
   font-weight: bold;
-  color: #fff;
-  background-color: #0d6efd;
+  color: var(--bg-primary);
+  background: var(--primary-gradient);
   border-radius: 8px;
   text-decoration: none;
   cursor: pointer;
-  transition: background-color 0.3s ease, transform 0.2s ease;
+  transition: all 0.3s ease;
   margin-top: 1.5rem; /* More spacing */
 
   &:hover {
-    background-color: rgb(1, 228, 69);
+    background-color: var(--text-secondary);
     transform: translateY(-3px);
   }
 
   &:active {
-    background-color: #cc8800;
+    background-color: var(--bg-secondary);
     transform: translateY(0);
   }
 
@@ -202,20 +203,20 @@ const startDate = new Date('2022-02-01');
       {show && (
         <div
           style={{
-            background: "linear-gradient(to right, #f4f4f4, #f4f4f4)",
+            background: "var(--bg-skill)",
           }}
         >
           <div className="container py-6">
             <div className="row text-center">
               {services.map((service, index) => (
                 <div key={index} className="col-12 col-sm-6 col-md-4 mb-4">
-                  <div
-                    className="service-card p-4 shadow rounded border"
-                    style={{
-                      border: "2px solidrgb(5, 6, 8)",
-                      transition: "transform 0.3s ease",
-                    }}
-                  >
+                    <div
+                      className="service-card p-4 shadow rounded border"
+                      style={{
+                        border: "2px solid var(--text-primary)",
+                        transition: "transform 0.3s ease",
+                      }}
+                    >
                     <div
                       className="mb-3"
                       style={{ fontSize: "2rem", color: "#0d6efd" }}

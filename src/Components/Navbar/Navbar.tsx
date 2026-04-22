@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
+import { Sun, Moon } from "lucide-react";
 import {
   Nav,
   NavBrand,
@@ -8,8 +9,11 @@ import {
   NavLogo,
   ToggleButton,
 } from "../CommonStyling";
+import { ThemeContext } from "../../context/ThemeContext";
 
 const Navbar: React.FC = () => {
+  const { isDark, toggleTheme } = useContext(ThemeContext)!;
+
   const navData = [
     { name: "Home", to: "/" },
     { name: "About", to: "/about" },
@@ -43,6 +47,16 @@ const Navbar: React.FC = () => {
                 </Link>
               </NavItem>
             ))}
+            <NavItem className="nav-item ms-3">
+              <button 
+                onClick={toggleTheme} 
+                className="btn btn-sm p-1 rounded-circle theme-toggle-btn"
+                title="Toggle dark mode"
+                style={{ border: '1px solid var(--border)', background: 'transparent' }}
+              >
+                {isDark ? <Sun size={20} className="text-warning" /> : <Moon size={20} className="text-primary" />}
+              </button>
+            </NavItem>
           </NavLinks>
         </div>
       </div>

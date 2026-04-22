@@ -26,7 +26,7 @@ const CanvasLoader: React.FC = () => {
       <p
         style={{
           fontSize: 14,
-          color: "#F1F1F1",
+          color: "var(--text-primary)",
           fontWeight: 800,
           marginTop: 40,
         }}

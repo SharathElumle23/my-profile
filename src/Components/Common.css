@@ -1,7 +1,8 @@
 .skills-section {
     padding: 2rem;
-    background-color: #f9f9f9;
+    background-color: var(--bg-skill);
     text-align: center;
+    transition: background-color 0.3s ease;
   }
   
   .skills-list {
@@ -14,10 +15,11 @@
   
   .skill-item {
     padding: 2rem 2rem;
-    background-color: #000;
-    color: white;
+    background-color: var(--text-primary);
+    color: var(--bg-primary);
     border-radius: 5px;
     font-size: 1rem;
+    transition: background-color 0.3s ease, color 0.3s ease;
   }
   .project-card {
     perspective: 1000px;
@@ -25,16 +27,17 @@
     transform-style: preserve-3d;
     position: relative;
     border-radius: 16px;
-    background: #fff;
+    background: var(--bg-card);
     overflow: hidden;
     z-index: 1;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 6px var(--shadow);
     border: none;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 .project-card:hover {
     transform: translateY(-5px) rotateY(4deg) rotateX(2deg) scale(1.02);
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 15px 30px var(--shadow);
 }
 
 .project-card::before {
@@ -46,8 +49,8 @@
     bottom: 0;
     border-radius: 16px;
     padding: 2px;
-    background: linear-gradient(135deg, #6e8efb, #a777e3, #ff7eb3, #ff8a00);
-    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    background: var(--primary-gradient), #ff7eb3, #ff8a00;
+    -webkit-mask: linear-gradient(var(--bg-primary) 0 0) content-box, linear-gradient(var(--bg-primary) 0 0);
     -webkit-mask-composite: xor;
     mask-composite: exclude;
     z-index: -1;
@@ -82,10 +85,10 @@
 .card-title {
     font-size: 1.25rem;
     margin-bottom: 0.75rem;
-    /* color: #2d3748; */
     position: relative;
     display: inline-block;
-    color: "#333333",
+    color: var(--text-secondary);
+    transition: color 0.3s ease;
 }
 
 .card-title::after {
@@ -95,7 +98,7 @@
     left: 0;
     width: 0;
     height: 3px;
-    background: linear-gradient(90deg, #6e8efb, #a777e3);
+    background: var(--primary-gradient);
     transition: width 0.3s ease;
 }
 
@@ -106,7 +109,8 @@
 .card-text {
     margin-bottom: 1rem;
     flex-grow: 1;
-    color: "#333333",
+    color: var(--text-secondary);
+    transition: color 0.3s ease;
 }
 
 .badge {
@@ -114,27 +118,32 @@
     padding: 0.35em 0.65em;
     font-size: 0.75em;
     background: linear-gradient(135deg, #edf2f7, #e2e8f0);
-    color: #4a5568;
+    color: var(--text-muted);
     border-radius: 4px;
     margin-right: 0.5rem;
     margin-bottom: 0.5rem;
     display: inline-block;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.dark .badge {
+    background: linear-gradient(135deg, #2a2a2a, #3a3a3a);
 }
 
 .btn-outline-dark {
-    border-color: #4a5568;
-    color: #4a5568;
+    border-color: var(--text-muted) !important;
+    color: var(--text-muted) !important;
     transition: all 0.3s ease;
 }
 
 .btn-outline-dark:hover {
-    background: #4a5568;
-    color: white;
+    background: var(--text-muted) !important;
+    color: var(--bg-primary) !important;
     transform: translateY(-2px);
 }
 
 .btn-primary {
-    background: linear-gradient(135deg, #6e8efb, #a777e3);
+    background: var(--primary-gradient);
     border: none;
     transition: all 0.3s ease;
 }

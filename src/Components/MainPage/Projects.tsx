@@ -79,9 +79,9 @@ const Project: React.FC<ProjectInt> = ({ route }) => {
       {route && <Experience />}
       <section
         id="Project"
-        className="py-5 text-black text-center animate__animated animate__fadeIn"
+        className="py-5 text-black text-center animate__animated animate__fadeIn skills-section"
         style={{
-          background: "linear-gradient(135deg,#f4f4f4,#f4f4f4)",
+          background: "var(--bg-skill)",
           fontFamily: "'Poppins', sans-serif",
         }}
       >

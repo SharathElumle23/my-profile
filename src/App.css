@@ -3,28 +3,32 @@
     padding: 12px 24px;
     font-size: 16px;
     font-weight: bold;
-    color: #fff;
-    background-color: #000; /* Blue background */
+    color: var(--text-primary);
+    background-color: var(--text-primary);
     border: none;
     border-radius: 5px;
     text-decoration: none;
     cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.2s ease;
+    transition: background-color 0.3s ease, transform 0.2s ease, color 0.3s ease;
   }
   
   .download-button:hover {
-    background-color: #afae7a; /* Darker blue on hover */
-    transform: translateY(-2px); /* Slight lift effect */
-    color:#020201
+    background-color: var(--text-secondary);
+    transform: translateY(-2px);
+    color: var(--bg-primary);
   }
   
   .download-button:active {
-    background-color: #004080; /* Even darker blue on click */
-    transform: translateY(0); /* Reset lift effect */
+    background-color: var(--bg-secondary);
+    transform: translateY(0);
+    color: var(--bg-primary);
   }
   .service-card:hover {
     transform: scale(1.05);
   }
+  
+
+   
   
 
   

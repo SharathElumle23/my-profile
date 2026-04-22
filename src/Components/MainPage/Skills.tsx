@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import {
   SiJavascript,
   SiReact,
+  SiNextdotjs,
   SiNodedotjs,
   SiHtml5,
   SiCss3,
@@ -19,6 +20,7 @@ const Skills: React.FC = () => {
     { name: "HTML", icon: <SiHtml5 />, color: "#E34F26" },
     { name: "CSS", icon: <SiCss3 />, color: "#1572B6" },
     { name: "React", icon: <SiReact />, color: "#61DBFB" },
+    { name: "Next.js", icon: <SiNextdotjs />, color: "#000000" },
     { name: "Angular", icon: <SiAngular />, color: "#DD0031" },
     { name: "JavaScript", icon: <SiJavascript />, color: "#F7DF1E" },
     { name: "TypeScript", icon: <SiTypescript />, color: "#3178C6" },
@@ -47,9 +49,9 @@ const Skills: React.FC = () => {
   return (
     <section
       id="skills"
-      className="py-5 text-black text-center animate__animated animate__fadeIn"
+      className="py-5 text-black text-center animate__animated animate__fadeIn skills-section"
       style={{
-        background: "linear-gradient(135deg,#f4f4f4,#f4f4f4)",
+        background: "var(--bg-skill)",
         fontFamily: "'Poppins', sans-serif",
       }}
     >
@@ -78,29 +80,29 @@ const Skills: React.FC = () => {
         <div className="row row-cols-2 row-cols-md-3 row-cols-lg-5 g-4">
           {skills.map((skill, index) => (
             <div key={index} className="col">
-              <div
-                className="skill-card"
-                style={{
-                  background: "rgba(252, 252, 252, 0.1)",
-                  backdropFilter: "blur(10px)",
-                  borderRadius: "15px",
-                  padding: "20px",
-                  textAlign: "center",
-                  transition: "transform 0.3s ease, box-shadow 0.3s ease",
-                  boxShadow: "0px 0px 10px rgba(255, 255, 255, 0.1)",
-                  borderBottom: `4px solid ${skill.color}`,
-                  cursor: "pointer",
-                }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.transform = "translateY(-10px)";
-                  e.currentTarget.style.boxShadow = `0 0 20px ${skill.color}`;
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.transform = "translateY(0)";
-                  e.currentTarget.style.boxShadow =
-                    "0px 0px 10px rgba(255, 255, 255, 0.1)";
-                }}
-              >
+                <div
+                  className="skill-card skill-item"
+                  style={{
+                    background: "var(--bg-card)",
+                    backdropFilter: "blur(10px)",
+                    borderRadius: "15px",
+                    padding: "20px",
+                    textAlign: "center",
+                    transition: "transform 0.3s ease, box-shadow 0.3s ease",
+                    boxShadow: "0px 0px 10px var(--shadow)",
+                    borderBottom: `4px solid ${skill.color}`,
+                    cursor: "pointer",
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.transform = "translateY(-10px)";
+                    e.currentTarget.style.boxShadow = `0 0 20px ${skill.color}`;
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.transform = "translateY(0)";
+                    e.currentTarget.style.boxShadow =
+                      "0px 0px 10px var(--shadow)";
+                  }}
+                >
                 <div
                   className="icon-container"
                   style={{
@@ -112,7 +114,7 @@ const Skills: React.FC = () => {
                 >
                   {skill.icon}
                 </div>
-                <h5 className="text-black">{skill.name}</h5>
+                <h5 className="text-primary">{skill.name}</h5>
               </div>
             </div>
           ))}

@@ -6,9 +6,10 @@ export const Nav = styled.nav`
   position: sticky;
   top: 0;
   z-index: 1000;
-  background-color: #000000;
-  color: white;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
   padding: 0.5rem 2rem;
+  transition: background-color 0.3s ease, color 0.3s ease;
 `;
 
 export const NavBrand = styled(Link)`
@@ -36,12 +37,12 @@ export const NavLinks = styled.ul`
 
 export const NavItem = styled.li`
   .nav-link {
-    color: white;
+    color: var(--text-primary);
     text-decoration: none;
     font-weight: 500;
 
     &:hover {
-      color: #ccc;
+      color: var(--text-secondary);
     }
   }
 `;

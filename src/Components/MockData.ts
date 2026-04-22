@@ -1,5 +1,5 @@
 export const profileSummary=[
-"I'm a highly skilled JavaScript and Python developer with a strong track record in web-based application development. My expertise spans modern frameworks like React and Angular, alongside database management with SQL Server.",
+"I'm a highly skilled JavaScript and Python developer with a strong track record in web-based application development. My expertise spans modern frameworks like React, Next.js, and Angular, alongside database management with SQL Server.",
 
 "🔹 Front-end & UI/UX – Crafting intuitive and responsive interfaces.",
 "🔹 Back-end Development – Implementing robust APIs and business logic.",

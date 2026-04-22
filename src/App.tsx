@@ -8,11 +8,13 @@ import Navbar from "./Components/Navbar/Navbar";
 import Contact from "./Components/ContactCard";
 import Project from "./Components/MainPage/Projects";
 import ScrollToTop from "./Components/ScrollToTop";
+import { ThemeProvider } from "./context/ThemeContext";
+
 const App: React.FC = () => {
   return (
-    <>
+    <ThemeProvider>
+      <GlobalStyles />
       <HashRouter>
-        <GlobalStyles />
         <ScrollToTop />
         <Navbar />
         <Routes>
@@ -22,7 +24,7 @@ const App: React.FC = () => {
           <Route path="/contact" element={<Contact />} />
         </Routes>
       </HashRouter>
-    </>
+    </ThemeProvider>
   );
 };
 

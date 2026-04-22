@@ -48,11 +48,11 @@ const ExperienceCard: React.FC<{ experience?: Experience }> = ({
   return (
     <VerticalTimelineElement
       contentStyle={{
-        background: "#ffffff", // white background for the card look
-        color: "#333333", // dark text color for better readability
+        background: "var(--bg-card)", // white background for the card look
+        color: "var(--text-secondary)", // dark text color for better readability
         borderRadius: "10px", // rounded corners
-        boxShadow: "0 4px 6px rgba(0, 0, 0, 0.1)", // soft shadow for depth
-        border: "2px solid #000", // black border for the card
+        boxShadow: "0 4px 6px var(--shadow)", // soft shadow for depth
+        border: "2px solid var(--text-primary)", // black border for the card
       }}
       contentArrowStyle={{ borderRight: "20px solid  #000" }} // arrow color matching the background
       date={experience?.date}
@@ -109,9 +109,9 @@ const Experience: React.FC = () => {
   <>
     <section
       id="Experience"
-      className="py-5 text-black text-center animate__animated animate__fadeIn"
+      className="py-5 text-black text-center animate__animated animate__fadeIn skills-section"
       style={{
-        background: "linear-gradient(135deg,#f4f4f4,#f4f4f4)",
+        background: "var(--bg-skill)",
         fontFamily: "'Poppins', sans-serif",
       }}
     >

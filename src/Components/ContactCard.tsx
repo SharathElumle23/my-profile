@@ -79,9 +79,9 @@ const Contact: React.FC = () => {
     <>
     <section
       id="Experience"
-      className="py-5 text-black animate__animated animate__fadeIn"
+      className="py-5 text-black animate__animated animate__fadeIn skills-section"
       style={{
-        background: "linear-gradient(135deg,#f4f4f4,#f4f4f4)",
+        background: "var(--bg-skill)",
         fontFamily: "'Poppins', sans-serif",
       }}
     >
